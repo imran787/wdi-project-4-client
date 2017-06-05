@@ -4,5 +4,7 @@ angular
     'ngResource',
     'angular-jwt',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngMessages'
+
   ]);

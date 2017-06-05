@@ -1,10 +1,17 @@
-<h1>Login</h1>
-<form ng-submit="login.login()">
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email">
+<div class="container">
+  <div class="col-md-6">
+    <h1>Login</h1>
+    <form ng-submit="login.login()">
+      <div class="form-group">
+        <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email" id="email">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" ng-model="login.user.password" placeholder="Password">
+      </div>
+      <input class="btn btn-primary" type="submit" value="Sign up">
+      <div class="">
+        <p>Don't have an account?</p><a ui-sref="register">Register</a>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="login.user.password" placeholder="Password">
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+</div>

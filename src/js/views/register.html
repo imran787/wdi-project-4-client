@@ -1,16 +1,40 @@
-<h1>Register</h1>
-<form ng-submit="register.register()">
-  <div class="form-group">
-    <input class="form-control" type="text" name="username" ng-model="register.user.username" placeholder="Username">
+<div class="container">
+  <div class="col-md-6">
+    <h1>Register</h1>
+    <form name="register.registerForm" ng-submit="register.register()" novalidate>
+      <div class="form-group">
+
+        <input class="form-control" type="text" name="username" ng-model="register.user.username" placeholder="Username" required>
+      </div>
+      <div class="ng-message-error" ng-messages="register.registerForm.username.$error" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched)">
+        <p ng-message="required">This field is required</p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email" ng-pattern="register.emailValidate">
+      </div>
+      <div class="ng-message-error" ng-messages="register.registerForm.email.$error" ng-show="(register.registerForm.$submitted || register.registerForm.email.$touched)">
+        <p ng-message="required">This field is required</p>
+        <p ng-message="pattern">Please enter a valid email address</p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password" required minlength="6">
+      </div>
+      <div class="ng-message-error" ng-messages="register.registerForm.password.$error" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched)">
+        <p ng-message="required">This field is required</p>
+        <p ng-message="minlength">Your password must be at least 6 characters</p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation" required ng-pattern="register.user.password">
+      </div>
+      <div class="ng-message-error" ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="(register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched)">
+        <p ng-message="required">This field is required</p>
+        <p ng-message="pattern">This must match your password</p>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Register" />
+      <div class="">
+        <p>Already have an account?</p><a ui-sref="login">Log in</a>
+      </div>
+
+    </form>
   </div>
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="password_confirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation">
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit" />
-</form>
+</div>
