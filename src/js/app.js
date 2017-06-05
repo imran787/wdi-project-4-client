@@ -1,1 +1,8 @@
-// app.js is the main JS file which you should define your Angular module
+angular
+  .module('storeApp', [
+    'ui.router',
+    'ngResource',
+    'angular-jwt',
+    'ngAnimate',
+    'ui.bootstrap'
+  ]);
