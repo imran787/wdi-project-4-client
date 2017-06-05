@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Stack Setup</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-  </body>
+<html ng-app="storeApp">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>ItemApp</title>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
+  <nav>
+    <ul>
+      <li ng-hide="main.user">
+        <a ui-sref="register">Register</a>
+      </li>
+      <li ng-hide="main.user">
+        <a ui-sref="login">Login</a>
+      </li>
+      <li>
+        <a ui-sref="itemsIndex">View Items</a>
+      </li>
+      <li ng-show="main.user">
+        <a>Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <main ui-view></main>
+</body>
 </html>
