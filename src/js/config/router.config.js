@@ -26,7 +26,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/users',
     templateUrl: '/js/views/users/index.html',
     controller: 'UsersIndexCtrl as vm'
-  // })
+  })
+  .state('itemsIndex', {
+    url: '/items',
+    templateUrl: '/js/views/items/index.html',
+    controller: 'ItemsIndexCtrl as vm'
+
   // .state('itemsShow', {
   //   url: '/items/:id',
   //   templateUrl: '/js/views/items/show.html',
