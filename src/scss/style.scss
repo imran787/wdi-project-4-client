@@ -1,1 +1,36 @@
-// Import all of your scss files here
+.row-element {
+  margin-top: 20px;
+
+  .item-card {
+
+    padding-bottom: 20px;
+    box-shadow: 0 10px 6px -6px #777;
+
+    .img-wrapper {
+      min-height: 300px;
+      max-height: 300px;
+      overflow: hidden;
+      margin-bottom: 10px;
+
+      img {
+        overflow: hidden;
+        cursor: pointer;
+      }
+    }
+
+    .vertical-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .img-responsive {
+      margin: 20px auto;
+    }
+
+  }
+}// Import all of your scss files here
+
+.page-title {
+  // color: antiquewhite;
+  text-align: center;
+}
