@@ -31,21 +31,22 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/items',
     templateUrl: '/js/views/items/index.html',
     controller: 'ItemsIndexCtrl as vm'
+  })
 
-  // .state('itemsShow', {
-  //   url: '/items/:id',
-  //   templateUrl: '/js/views/items/show.html',
-  //   controller: 'ItemsShowCtrl as vm'
-  // })
-  // .state('itemsNew', {
-  //   url: '/items/new',
-  //   templateUrl: '/js/views/items/new.html',
-  //   controller: 'ItemsNewCtrl as vm'
-  // })
-  // .state('itemsEdit', {
-  //   url: '/items/:id/edit',
-  //   templateUrl: '/js/views/items/edit.html',
-  //   controller: 'ItemsEditCtrl as vm'
+  .state('itemsShow', {
+    url: '/items/:id',
+    templateUrl: '/js/views/items/show.html',
+    controller: 'ItemsShowCtrl as vm'
+  })
+  .state('itemsNew', {
+    url: '/items/new',
+    templateUrl: '/js/views/items/new.html',
+    controller: 'ItemsNewCtrl as vm'
+  })
+  .state('itemsEdit', {
+    url: '/items/:id/edit',
+    templateUrl: '/js/views/items/edit.html',
+    controller: 'ItemsEditCtrl as vm'
   });
 
   $urlRouterProvider.otherwise('/');

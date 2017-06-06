@@ -1,6 +1,7 @@
 
 
 <h1 class="page-title">Items</h1>
+<button ui-sref="itemsNew" type="button" class="btn btn-primary">Add New Item</button>
 
 <div class="row row-element">
   <div ng-repeat="item in vm.items track by $index">
@@ -8,7 +9,7 @@
       <div class="item-card text-center thumbnail">
         <h3>{{ item.name }}</h3>
         <div class="img-wrapper vertical-center">
-          <img ng-src="{{item.image}}" alt="{{item.name}}">
+          <img ui-sref="itemsShow({id: item.id})"ng-src="{{item.image}}" alt="{{item.name}}">
         </div>
 
         <p>{{item.description}}</p>

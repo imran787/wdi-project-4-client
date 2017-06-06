@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+
+
+    <h1>New Item</h1>
+    <!-- <div class="index-wrap pa3 cf" style="height: 100%; width: 80%;"> -->
+
+
+      <form ng-submit="vm.create()">
+
+        <div class="form-group">
+          <label  for="name">Name</label>
+          <input class="form-control" type="text" name="name" id="name" ng-model="vm.item.name" placeholder="Name" >
+        </div>
+
+        <div class="form-group" >
+          <label  for="description">Description</label>
+          <textarea  class="form-control" id="description" name="description" ng-model="vm.item.description"  placeholder="Write description of your item here"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Image">Image</label>
+          <input class="form-control" type="text" name="image" ng-model="vm.item.image" placeholder="Paste Item Image address here">
+        </div>
+
+        <div class="form-group">
+          <label for="value">Value</label>
+          <input class="form-control" type="text" name="value" id="value" ng-model="vm.item.value" placeholder="T.......">
+        </div>
+
+
+        <div class="form-group">
+          <input class="btn btn-primary" type="submit" value="Add Item">
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
