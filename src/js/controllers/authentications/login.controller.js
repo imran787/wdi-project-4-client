@@ -8,12 +8,16 @@ function LoginCtrl(User, CurrentUserService, $state) {
 
   vm.login = () => {
     User
-      .login(vm.user).$promise
+      .login(vm.user)
+      .$promise
       .then(() => {
         CurrentUserService.getUser();
-        $state.go('itemsIndex');
+        // $state.go('itemsIndex');
+        if(vm.user){
+          $state.go('itemsIndex');
+        }
       }, err => {
-        console.log(err);
+        console.log('LoginCtrl error: ', err);
       });
   };
 }

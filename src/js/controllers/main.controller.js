@@ -23,14 +23,15 @@ function MainCtrl(
   $rootScope.$on('loggedIn', () => {
     vm.user = CurrentUserService.currentUser;
   });
-
+  vm.logout = () => {
+    CurrentUserService.removeUser();
+    $state.go('login');
+  };
   $rootScope.$on('loggedOut', () => {
     vm.user = null;
     $state.go('login');
   });
 
-  vm.logout = () => {
-    CurrentUserService.removeUser();
-  };
+
 
 }

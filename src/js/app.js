@@ -5,6 +5,6 @@ angular
     'angular-jwt',
     'ngAnimate',
     'ui.bootstrap',
-    'ngMessages'
-
+    'ngMessages',
+    'ngMaterial'
   ]);
