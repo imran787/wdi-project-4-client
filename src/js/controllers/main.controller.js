@@ -1,6 +1,6 @@
 angular
-  .module('storeApp')
-  .controller('MainCtrl', MainCtrl);
+.module('storeApp')
+.controller('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = [
   '$http',
@@ -21,6 +21,7 @@ function MainCtrl(
   vm.isNavCollapsed = true;
 
   $rootScope.$on('loggedIn', () => {
+    $rootScope.currentUser = CurrentUserService.currentUser;
     vm.user = CurrentUserService.currentUser;
   });
   vm.logout = () => {
@@ -31,7 +32,4 @@ function MainCtrl(
     vm.user = null;
     $state.go('login');
   });
-
-
-
 }

@@ -4,19 +4,19 @@
 <button ui-sref="itemsNew" type="button" class="btn btn-primary">Add New Item</button>
 
 <div class="row row-element">
-  <div ng-repeat="item in vm.items track by $index">
-    <div class="col-md-4 col-xs-12 col-sm-6">
-      <div class="item-card text-center thumbnail">
-        <h3>{{ item.name }}</h3>
-        <div class="img-wrapper vertical-center">
-          <img ui-sref="itemsShow({id: item.id})"ng-src="{{item.image}}" alt="{{item.name}}">
-        </div>
+<div ng-repeat="item in vm.items track by $index">
+<div class="col-md-4 col-xs-12 col-sm-6">
+<div class="item-card text-center thumbnail">
+<h3>{{ item.name }}</h3>
+<div class="img-wrapper vertical-center">
+<img ui-sref="itemsShow({id: item.id})"ng-src="{{item.image}}" alt="{{item.name}}">
+</div>
 
-        <p>{{item.description}}</p>
-      </div>
+<p>{{item.description}}</p>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </div> -->
 
 <div ng-cloak class="md-tabs-centered-wrapper">
@@ -45,29 +45,58 @@
         </md-content>
       </md-tab>
 
-      <md-tab label="Requests">
+      <md-tab label="Requests" ng-click="vm.requests()">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Requests</h1>
+          <h1 class="md-display-2">Requests received go here</h1>
 
-          <div ng-repeat="request in main.user.received_requests">
-            ---{{request}}
+          <div class="row row-element">
+            <div ng-repeat="request in vm.reqArray track by $index">
+              <div class="col-md-4 col-xs-12 col-sm-6">
+                <div class="item-card text-center thumbnail">
+                  <h3>{{ request.name }}</h3>
+                  <div class="img-wrapper vertical-center">
+                    <img ng-src="{{request.image}}" alt="{{request.name}}">
+                  </div>
+                  <p>{{request.description}}</p>
+                  <p>{{request.value}}</p>
+
+
+                  <button ng-show="main.user" ng-click="vm.assign(request)" type="button" name="button">Approve</button>
+                  <button ng-show="main.user" type="button" name="button">Reject</button>
+
+                </div>
+
+              </div>
+            </div>
           </div>
-          <!-- <ul>
-            <li ng-repeat="request in vm.item.requests">{{request}}</li>
-          </ul> -->
-        </md-content>
-      </md-tab>
-      <md-tab label="Offers">
-        <md-content class="md-padding">
-          <h1>Offers made go here</h1>
 
-          <div ng-repeat="request in main.user.sent_requests">
-            ---{{request}}
-          </div>
+          <!-- <div ng-repeat="request in main.user.received_requests">
+
+          {{request}}
+        </div> -->
 
 
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+
+
+        <!-- <ul>
+        <li ng-repeat="request in vm.item.requests">{{request}}</li>
+      </ul> -->
+    </md-content>
+  </md-tab>
+  <md-tab label="Offers" ng-click="vm.offers()">
+    <md-content class="md-padding">
+      <h1>Offers made go here</h1>
+
+      <div ng-repeat="offer in vm.itemsArray">
+        <!-- -{{offer}} -->
+        <h3>{{offer.name}}</h3>
+        <img ng-src="{{offer.image}}">
+        <p>{{offer.value}}</p>
+      </div>
+
+
+    </md-content>
+  </md-tab>
+</md-tabs>
+</md-content>
 </div>
