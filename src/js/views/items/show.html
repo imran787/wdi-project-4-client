@@ -16,7 +16,7 @@
     <h1>{{vm.item.name}}</h1>
     <img ng-src="{{vm.item.image}}" alt="{{vm.item.name}}" class="img-responsive"><br>
     <p>{{vm.item.description}}</p>
-    <button type="button" name="button" ng-click="vm.request()">Make purchase request</button>
+    <button ng-hide="vm.item.seller.id === main.user.id" type="button" name="button" ng-click="vm.request()">Make purchase request</button>
   </div>
 </div>
 
