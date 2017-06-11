@@ -10,7 +10,7 @@
               <div class="col-md-4 col-xs-12 col-sm-6">
                 <div class="item-card text-center thumbnail">
                   <h3>{{ item.name }}</h3>
-                  <h4>{{ item.seller.username }}</h4>
+                  <h4>Posted by: {{ item.seller.username }}</h4>
                   <div class="img-wrapper vertical-center">
                     <img ui-sref="itemsShow({id: item.id})" ng-src="{{item.image}}" alt="{{item.name}}">
                   </div>
@@ -29,11 +29,13 @@
               <div class="col-md-4 col-xs-12 col-sm-6">
                 <div class="item-card text-center thumbnail">
                   <h3>{{ request.item.name }}</h3>
+                  <h3>{{ item.seller.username}}</h3>
                   <div class="img-wrapper vertical-center">
                     <img ng-src="{{request.item.image}}" alt="{{request.item.name}}">
                   </div>
                   <p>{{request.description}}</p>
                   <p>{{request.value}}</p>
+                  
                   <button ng-show="main.user" ng-click="vm.updateOffer(request, 'accepted')" type="button" name="button">Approve</button>
                   <button ng-show="main.user" ng-click="vm.updateOffer(request, 'rejected')" type="button" name="button">Reject</button>
                 </div>
@@ -52,6 +54,20 @@
           </div>
         </md-content>
       </md-tab>
+
+    <md-tab label="My messages">
+      <md-content class="md-padding">
+        <h1>Messages go here</h1>
+
+      </md-content>
+    </md-tab>
+
+  <md-tab label="My Account">
+    <md-content class="md-padding">
+      <h1>Account details go here</h1>
+
+    </md-content>
+  </md-tab>
     </md-tabs>
   </md-content>
 </div>

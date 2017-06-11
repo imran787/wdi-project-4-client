@@ -6,7 +6,20 @@ ItemsIndexCtrl.$inject = ['Item', 'CurrentUserService', 'API', '$http', '$rootSc
 
 function ItemsIndexCtrl(Item, CurrentUserService, API, $http, $rootScope, Request){
   const vm       = this;
-  vm.offers      = CurrentUserService.currentUser.sent_requests;
+  // vm.offers      = CurrentUserService.currentUser.sent_requests;
+
+  //populating the offers tab
+  // vm.offers = CurrentUserService.currentUser.sent_requests.filter(request => {} );
+
+  // User
+  //   .get({ id: TokenService.decodeToken().id })
+  //   .$promise
+  //   .then(user => {
+  //     console.log('user:', user);
+  //     vm.user = user;
+  //     vm.offers = user.sent_requests;
+  //   });
+
   vm.updateOffer = updateOffer;
 
   vm.pendingRequests = CurrentUserService.currentUser.received_requests.filter(request => {
@@ -24,6 +37,7 @@ function ItemsIndexCtrl(Item, CurrentUserService, API, $http, $rootScope, Reques
 
   function updateOffer(request, action) {
     request.status = action;
+    console.log(request);
 
     Request
     .update({ id: request.id}, request)
