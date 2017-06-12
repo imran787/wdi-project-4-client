@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="main.user">
-          <p class="navbar-text">Welcome, <span style="font-weight:bold;">{{ main.user.email }}</span></p>
+          <p ui-sref="usersShow({id: main.user.id })" class="navbar-text">Welcome, <span style="font-weight:bold;">{{ main.user.email }}</span></p>
         </li>
         <li ng-hide="main.user">
           <a ui-sref="register">Register</a>

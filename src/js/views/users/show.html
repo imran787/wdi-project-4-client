@@ -1,0 +1,8 @@
+<h1>{{ vm.user.first_name }}</h1>
+
+<h2>Owned Items</h2>
+<ul>
+  <li ng-repeat="item in vm.user.items_as_seller">
+    {{ item.name }}
+  </li>
+</ul>

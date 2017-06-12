@@ -1,9 +1,9 @@
 angular
   .module('storeApp')
-  .controller('UserShowCtrl', UserShowCtrl);
+  .controller('UsersShowCtrl', UsersShowCtrl);
 
-  UserShowCtrl.$inject = ['User', '$stateParams'];
-  function UserShowCtrl(User, $stateParams){
-    const vm = this;
-    vm.user = User.get($stateParams);
-  }
+UsersShowCtrl.$inject = ['User', '$stateParams'];
+function UsersShowCtrl(User, $stateParams){
+  const vm = this;
+  vm.user = User.get($stateParams);
+}
