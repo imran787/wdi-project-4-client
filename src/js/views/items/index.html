@@ -14,7 +14,7 @@
                   <div class="img-wrapper vertical-center">
                     <img ui-sref="itemsShow({id: item.id})" ng-src="{{item.image}}" alt="{{item.name}}">
                   </div>
-                  <p>{{item.description}}</p>
+                  <p>{{item.description | cut:true:670:' ...'}}</p>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
                   </div>
                   <p>{{request.description}}</p>
                   <p>{{request.value}}</p>
-                  
+
                   <button ng-show="main.user" ng-click="vm.updateOffer(request, 'accepted')" type="button" name="button">Approve</button>
                   <button ng-show="main.user" ng-click="vm.updateOffer(request, 'rejected')" type="button" name="button">Reject</button>
                 </div>
@@ -58,6 +58,9 @@
     <md-tab label="My messages">
       <md-content class="md-padding">
         <h1>Messages go here</h1>
+          <!-- <div ng-repeat="body in vm.body">
+
+          </div> -->
 
       </md-content>
     </md-tab>

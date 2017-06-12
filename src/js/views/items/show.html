@@ -10,16 +10,16 @@
     </div>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-md-8 col-xs-10 text-center thumbnail item-card">
+  <div class="">
     <h1>{{vm.item.name}}</h1>
     <img ng-src="{{vm.item.image}}" alt="{{vm.item.name}}" class="img-responsive"><br>
     <p>{{vm.item.description}}</p>
-    <button ng-hide="vm.item.seller.id === main.user.id" type="button" name="button" ng-click="vm.request()">Make purchase request</button>
+    <button ng-click="vm.showRequest = !vm.showRequest">Make Request</button>
+  </div>
+  <div ng-show="vm.showRequest">
+    <label for="message">Write a message</label>
+    <textarea name="name" rows="8" cols="80" ng-model="vm.request.body"></textarea>
+    <button ng-click="vm.createRequest()">Submit Request</button>
   </div>
 </div>
-
-<ul>
-  <li ng-repeat="request in vm.item.requests">{{request}}</li>
-</ul>

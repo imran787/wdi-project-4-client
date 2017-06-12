@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h3 class="modal-title">Send a Message before making request</h3>
+</div>
+<div class="modal-body">
+<textarea name="name" rows="8" cols="80"></textarea>
+</div>
+<div class="modal-footer">
+  <button ng-hide="vm.item.seller.id === main.user.id" type="button" name="button" ng-click="vm.request()">Make purchase request</button>
+  <button class="btn btn-danger">Cancel</button>
+</div>
