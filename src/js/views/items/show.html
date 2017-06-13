@@ -1,25 +1,28 @@
-<div class="row button-row">
-  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
-    <div class="col-md-2 col-sm-3 pull-right">
-      <button class="btn btn-danger" href="javascript:void(0)"
-      ng-click="vm.delete()">Delete Item</button>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <h1>{{vm.item.name}}</h1>
+      <img ng-src="{{vm.item.image}}" alt="{{vm.item.name}}" class="img-responsive  rounded mx-auto d-block"><br>
+      <p>{{vm.item.description}}</p>
+      <button class="mainBtn" ng-click="vm.showRequest = !vm.showRequest">Make Request</button>
     </div>
-    <div class="col-md-2 col-sm-3 pull-right">
-      <button class="btn btn-primary" href="javascript:void(0)"
-      ui-sref="itemsEdit({ id: vm.item.id })">Edit Item</button>
+    <div ng-show="vm.showRequest">
+      <label for="message">Write a message</label>
+      <textarea name="name" rows="8" cols="80" ng-model="vm.request.body"></textarea>
+      <button ng-click="vm.createRequest()">Submit Request</button>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="">
-    <h1>{{vm.item.name}}</h1>
-    <img ng-src="{{vm.item.image}}" alt="{{vm.item.name}}" class="img-responsive"><br>
-    <p>{{vm.item.description}}</p>
-    <button ng-click="vm.showRequest = !vm.showRequest">Make Request</button>
-  </div>
-  <div ng-show="vm.showRequest">
-    <label for="message">Write a message</label>
-    <textarea name="name" rows="8" cols="80" ng-model="vm.request.body"></textarea>
-    <button ng-click="vm.createRequest()">Submit Request</button>
+  <div class="row button-row">
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <div class="col-md-2 col-sm-3 pull-right">
+        <button class="btn btn-danger" href="javascript:void(0)"
+        ng-click="vm.delete()">Delete Item</button>
+      </div>
+      <div class="col-md-2 col-sm-3 pull-right">
+        <button class="btn btn-primary mainBtn" href="javascript:void(0)"
+        ui-sref="itemsEdit({ id: vm.item.id })">Edit Item</button>
+      </div>
+    </div>
   </div>
 </div>

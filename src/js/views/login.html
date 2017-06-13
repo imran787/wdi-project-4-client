@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="col-md-6">
+<div class="container formcontainer">
+  <div class="col-md-6 form">
     <h1>Login</h1>
     <form ng-submit="login.login()" name="login.loginForm">
 
@@ -18,9 +18,9 @@
 
       <!-- validate here -->
 
-      <input class="btn btn-primary" type="submit" value="Log in">
+      <input class="btn mainBtn" type="submit" value="Log in">
       <div class="">
-        <p>Don't have an account?</p><a ui-sref="register">Register</a>
+        <p>Don't have an account?</p><a class=" btn mainBtn" ui-sref="register">Register</a>
       </div>
     </form>
   </div>

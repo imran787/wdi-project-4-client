@@ -3,14 +3,14 @@
 <head>
   <base href="/">
   <meta charset="utf-8">
-  <title>ItemApp</title>
+  <title>The Watch Factory</title>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main">
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-inverse" id="navigation-bar" style="background-color: #6BB5F9;color: #FFF;" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -19,13 +19,13 @@
         <span class="icon-bar"></span>
       </button>
       <!-- <div class="navbar-header"> -->
-      <a class="navbar-brand" ui-sref="home">Used watch market</a>
+      <a class="navbar-brand" ui-sref="home" style="color:white;">the Watch Factory</a>
       <!-- </div> -->
     </div>
     <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="main.user">
-          <p ui-sref="usersShow({id: main.user.id })" class="navbar-text">Welcome, <span style="font-weight:bold;">{{ main.user.email }}</span></p>
+          <p style="font-weight:bold;color:white;"ui-sref="usersShow({id: main.user.id })" class="navbar-text">Welcome, <span >{{ main.user.first_name }}</span></p>
         </li>
         <li ng-hide="main.user">
           <a ui-sref="register">Register</a>
@@ -36,6 +36,9 @@
         <li>
           <a ui-sref="itemsIndex">View Items</a>
         </li>
+        <li>
+            <a href="#" id="myBtn">How it Works</a>
+        </li>
         <li ng-show="main.user">
           <a ng-click="main.logout()">Logout</a>
         </li>
@@ -43,7 +46,50 @@
     </div>
 
   </nav>
-  {{1+1}}
+
   <main ui-view></main>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <p class="measure">Hi, <strong>{{main.user.first_name || "Unsigned in stranger!"}}</strong> welcome to <strong>the Watch Factory</strong>!</p>
+      <p class="measure">Here you will find a wide assortment of the finest used timepieces available.</p>
+        <p><strong>the Watch Factory</strong> was the first independent watch retailer to advertise on national television, and we pride ourselves on having one of the most efficient shopping systems available with communication at every stage to inform you of your order status, as well as excellent 7-days sales, customer service and support team who are glad to assist you with any enquiry.</p>
+        <p>
+FREE DELIVERY<br>
+
+We offer FREE delivery to ALL customers. Order by 4pm week days or 1pm Sunday and we will dispatch your order the very same day.<br>
+
+FREE RETURNS<br>
+
+Of course, we hope you are happy with your watch, but if you change your mind for whatever reason, you can easily send your watch back for a refund. Oh, and this is free as well!</p>
+        <p class="measure">Feel free to register and log in to explore our website! Who knows what bargain awaits you. </p>
+
+      </div>
+    </div>
+    <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
 </body>
 </html>

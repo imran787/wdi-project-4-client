@@ -1,18 +1,19 @@
-<div ng-cloak class="md-tabs-centered-wrapper">
+<!-- <div ng-cloak class="md-tabs-centered-wrapper"> -->
+<div ng-cloak class=" md-tabs-centered-wrapper tabsBg">
   <md-content>
-    <md-tabs md-dynamic-height md-border-bottom>
+    <md-tabs md-dynamic-height md-border-bottom  dashboardTabs>
       <md-tab label="Items">
         <md-content class="md-padding">
-          <h1 class="page-title">Items</h1>
-          <button ui-sref="itemsNew" type="button" class="btn btn-primary">Add New Item</button>
+          <h1 class="page-title">Listed items</h1>
+          <button ui-sref="itemsNew" type="button" class="btn btn-primary mainBtn">Add New Item</button>
           <div class="row row-element">
             <div ng-repeat="item in vm.filteredItems track by $index">
               <div class="col-md-4 col-xs-12 col-sm-6">
-                <div class="item-card text-center thumbnail">
+                <div class="item-card text-center">
                   <h3>{{ item.name }}</h3>
-                  <h4>Posted by: {{ item.seller.username }}</h4>
+                  <h4>Item listed by: {{ item.seller.username }}</h4>
                   <div class="img-wrapper vertical-center">
-                    <img ui-sref="itemsShow({id: item.id})" ng-src="{{item.image}}" alt="{{item.name}}">
+                    <img class="img-thumbnail" ui-sref="itemsShow({id: item.id})" ng-src="{{item.image}}" alt="{{item.name}}">
                   </div>
                   <p>{{item.description | cut:true:670:' ...'}}</p>
                 </div>
@@ -22,7 +23,7 @@
         </md-content>
       </md-tab>
       <md-tab label="Requests">
-        <md-content class="md-padding">
+        <md-content class="md-padding  dashboardTabs">
           <h1 class="md-display-2">Pending Requests on your Items</h1>
           <div class="row row-element">
             <div ng-repeat="request in vm.pendingRequests track by $index">
@@ -31,7 +32,7 @@
                   <h3>{{ request.item.name }}</h3>
                   <h3>{{ item.seller.username}}</h3>
                   <div class="img-wrapper vertical-center">
-                    <img ng-src="{{request.item.image}}" alt="{{request.item.name}}">
+                    <img class="thumbnail"ng-src="{{request.item.image}}" alt="{{request.item.name}}">
                   </div>
                   <p>{{request.description}}</p>
                   <p>{{request.value}}</p>
@@ -45,7 +46,7 @@
         </md-content>
       </md-tab>
       <md-tab label="Offers">
-        <md-content class="md-padding">
+        <md-content class="md-padding  dashboardTabs">
           <h1>Offers made go here</h1>
           <div ng-repeat="offer in vm.offers">
             <h3>{{offer.name}}</h3>
@@ -56,7 +57,7 @@
       </md-tab>
 
     <md-tab label="My messages">
-      <md-content class="md-padding">
+      <md-content class="md-padding  dashboardTabs">
         <h1>Messages go here</h1>
           <!-- <div ng-repeat="body in vm.body">
 
@@ -66,7 +67,7 @@
     </md-tab>
 
   <md-tab label="My Account">
-    <md-content class="md-padding">
+    <md-content class="md-padding  dashboardTabs">
       <h1>Account details go here</h1>
 
     </md-content>
